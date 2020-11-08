@@ -1,0 +1,142 @@
+body {
+    font-family: 'Goldman', cursive;
+    font-size: 18px/36px;
+    background-color: #ddd;
+}
+
+h1 {
+    font-size: 80px;
+    margin: 50px 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px white;
+}
+
+.container {
+    width: 600px;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.gallery li {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* overflow: hidden; */
+    border: 5px solid #666;
+    float: left;
+    margin-left: 15px;
+    position: relative;
+}
+
+.gallery li a img {
+    border-radius: 50%;
+    s
+}
+
+.gallery li span {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    width: 120px;
+    height: 120px;
+    color: #333;
+    text-shadow: 1px 1px 1px #ddd;
+    border-radius: 50%;
+    background-color: rgba(200, 200, 200, .5);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 120px;
+    opacity: 0;
+    transform: scale(0) rotate(0);
+    transition: 300ms;
+}
+
+.gallery li a:hover span {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+    transition: 300ms;
+}
+
+.clear {
+    clear: both;
+}
+
+.overlay {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: .8s;
+    z-index: 99999;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    transition: 1s;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.overlay img {
+    max-height: 100%;
+    border-radius: 0.5em;
+}
+
+.overlay:target img {
+    animation: animasiphoto 1s;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    text-decoration: none;
+    background-color: white;
+    padding: 5px;
+    border-radius: 0.3em;
+    transition: 300ms;
+    opacity: 0;
+}
+
+.overlay .close:hover {
+    right: 50px;
+    border-radius: 0.3em;
+    transition: 300ms;
+}
+
+.overlay:target .close {
+    animation: slidedown .5s .5s forwards;
+}
+
+@keyframes animasiphoto {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slidedown {
+    0% {
+        margin: -20px;
+        opacity: 0;
+    }
+    100% {
+        margin: 0;
+        opacity: 1;
+    }
+}
